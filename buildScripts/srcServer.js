@@ -2,9 +2,9 @@
 // serving root and sending `index.html`
 // open app at http://localhost: and port 3000
 
-const express = require('express');
-const path = require('path');
-const open = require('open'); // used to open our site in the browser
+import express from 'express';
+import path from 'path';
+import open from 'open'; // used to open our site in the browser
 
 const port = 8080;
 
