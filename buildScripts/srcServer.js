@@ -6,10 +6,25 @@ import express from 'express';
 import path from 'path';
 import open from 'open'; // used to open our site in the browser
 
-const port = 8080;
+// step up our express server to serve our webpack bundle >> step 1
+import webpack from 'webpack';
+import config from '../webpack.config.dev';
+
+const port = 3000;
 
 // create instance of express
 const app = express();
+
+// reference webpack compiler >> step 2
+const compiler = webpack(config);
+
+// put compiler in use >> step 3
+app.use(
+  require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath
+  })
+);
 
 // route express should handle
 app.get('/', function(req, res) {
