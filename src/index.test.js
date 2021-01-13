@@ -9,7 +9,7 @@ describe("Our first test", () => {
 });
 
 describe("index.html", () => {
-  it("should have h1 that says Users", (done) => {
+  it("should have H1 that says users", (done) => {
     const index = fs.readFileSync("./src/index.html", "utf-8");
     // define jsdom enviroment
     // this test is async return a callback function
@@ -17,7 +17,7 @@ describe("index.html", () => {
     // to tell mocha to evaluate
     jsdom.env(index, function (err, window) {
       const h1 = window.document.getElementsByTagName("h1")[0];
-      expect(h1.innerHTML).to.equal("Hello :)");
+      expect(h1.innerHTML).to.equal("Users");
       // tell mocha that our test is done
       done();
       window.close();
