@@ -18,14 +18,6 @@ app.use(compression());
 // enable express to serve static files
 app.use(express.static("dist"));
 
-// put compiler in use >> step 3
-app.use(
-  require("webpack-dev-middleware")(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath,
-  })
-);
-
 // route express should handle
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
