@@ -1,3 +1,4 @@
+// swap between real (production) api and mock api
 export default function getBaseUrl() {
   // http://localhost:3000/?useMockApi=true to open data provided by Mock API
   return getQueryStringParameterByName("useMockApi")
@@ -5,6 +6,7 @@ export default function getBaseUrl() {
     : "/";
 }
 
+// to get parameter from url
 function getQueryStringParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
